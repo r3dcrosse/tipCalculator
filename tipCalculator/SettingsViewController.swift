@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var defualtTipControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +21,19 @@ class SettingsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func saveDefaultPercentage(sender: AnyObject) {
+        
+        let defualtTipPrecentages = [0.15, 0.18, 0.2, 0.22, 0.25]
+        let defaultTipPercentage = defualtTipPrecentages[defualtTipControl.selectedSegmentIndex]
+        
+        // NOT WORKING YET::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject("some_string_to_save", forKey: "some_key_that_you_choose")
+        defaults.setInteger(123, forKey: "another_key_that_you_choose")
+        defaults.synchronize()
+        // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     }
     
 

@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     // test comment
     @IBAction func onEditingChange(sender: AnyObject) {
         let tipPrecentages = [0.15, 0.18, 0.2, 0.22, 0.25]
