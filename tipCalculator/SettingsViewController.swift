@@ -10,12 +10,37 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    @IBOutlet weak var defualtTipControl: UISegmentedControl!
+    @IBOutlet weak var defaultTipControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        print("SETTIGs view will appear")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print("settings view did appear")
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("settings view will disappear")
+        
+        // set new default value for tip
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(defaultTipControl.selectedSegmentIndex, forKey: "default_tip_setting")
+        defaults.synchronize()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("settings view did disappear")
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,20 +48,6 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func saveDefaultPercentage(sender: AnyObject) {
-        
-        let defualtTipPrecentages = [0.15, 0.18, 0.2, 0.22, 0.25]
-        let defaultTipPercentage = defualtTipPrecentages[defualtTipControl.selectedSegmentIndex]
-        
-        // NOT WORKING YET::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject("some_string_to_save", forKey: "some_key_that_you_choose")
-        defaults.setInteger(123, forKey: "another_key_that_you_choose")
-        defaults.synchronize()
-        // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    }
-    
-
     /*
     // MARK: - Navigation
 

@@ -148,9 +148,6 @@
                                     <segment title="25%"/>
                                 </segments>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="saveDefaultPercentage:" destination="oEl-SR-MvX" eventType="valueChanged" id="eOg-aJ-Xjj"/>
-                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Default Percentage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Sp-mi-wy8">
                                 <rect key="frame" x="155" y="112" width="291" height="34"/>

@@ -18,11 +18,45 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view, typically from a nib.
+        
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         
+        // Load tip default
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        // :: NOT WORKING ::
+        // check to see if defaults have been set already, if not, create new default and set it
+        if (defaults.integerForKey("default_tip_setting") == nil) {
+            defaults.setInteger(2, forKey: "default_tip_setting")
+            defaults.synchronize()
+        } else {
+            let intValue = defaults.integerForKey("default_tip_setting")
+            
+            tipControl.selectedSegmentIndex = intValue
+        }
+        // ::::::::::::::::::::::::::::::::::::::::::::
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        print("view will appear")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did appear")
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("view will disappear")
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("view did disappear")
     }
     
     override func didReceiveMemoryWarning() {
