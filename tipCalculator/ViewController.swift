@@ -23,6 +23,9 @@ class ViewController: UIViewController {
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         
+        // Display keyboard when app runs
+        displayKeyboard()
+        
         // :: NOT WORKING ::
         // check to see if defaults have been set already, if not, create new default and set it
         /*if (defaults.integerForKey("default_tip_setting") == nil) {
@@ -32,6 +35,10 @@ class ViewController: UIViewController {
             let intValue = defaults.integerForKey("default_tip_setting")
             tipControl.selectedSegmentIndex = intValue
         }*/
+    }
+    
+    func displayKeyboard() {
+        self.billField.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
