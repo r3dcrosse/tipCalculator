@@ -12,40 +12,33 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var defaultTipControl: UISegmentedControl!
     
+    // Declare default floats as global variables
+    var lowestTip: Float!
+    var midTip: Float!
+    var highestTip: Float!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        print("SETTIGs view will appear")
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        print("settings view did appear")
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("settings view will disappear")
         
-        // set new default value for tip
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(defaultTipControl.selectedSegmentIndex, forKey: "default_tip_setting")
-        defaults.synchronize()
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("settings view did disappear")
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        lowestTip = userDefaults.floatForKey("lowest_tip")
+        midTip = userDefaults.floatForKey("mid_tip")
+        highestTip = userDefaults.floatForKey("highest_tip")
+        
+        defaultTipControl.setTitle("\(lowestTip)", forSegmentAtIndex: 0)
+        defaultTipControl.setTitle("\(midTip)", forSegmentAtIndex: 1)
+        defaultTipControl.setTitle("\(highestTip)", forSegmentAtIndex: 2)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func segControlTapped(sender: AnyObject) {
+        print(defaultTipControl.selectedSegmentIndex)
+        
     }
     
     /*

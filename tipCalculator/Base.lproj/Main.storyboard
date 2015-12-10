@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tip Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tipCalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -103,7 +103,7 @@
                             <outletCollection property="gestureRecognizers" destination="11x-aa-rix" appends="YES" id="dCd-3J-A1S"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="tZL-9Q-elT">
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="tZL-9Q-elT">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="6Xw-g1-Fza">
                             <connections>
                                 <segue destination="oEl-SR-MvX" kind="push" id="J2s-aL-z9f"/>
@@ -126,7 +126,7 @@
             </objects>
             <point key="canvasLocation" x="481" y="429"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="OuO-rk-NVk">
             <objects>
                 <viewController id="oEl-SR-MvX" customClass="SettingsViewController" customModule="tipCalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,6 +148,9 @@
                                     <segment title="25%"/>
                                 </segments>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="segControlTapped:" destination="oEl-SR-MvX" eventType="valueChanged" id="7XV-Ya-cP6"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Default Percentage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Sp-mi-wy8">
                                 <rect key="frame" x="155" y="112" width="291" height="34"/>
@@ -166,9 +169,9 @@
                             <constraint firstAttribute="trailing" secondItem="n9f-HE-Kfc" secondAttribute="trailing" constant="33" id="zrv-2f-gKf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gpA-4M-jRb"/>
+                    <navigationItem key="navigationItem" title="Settings" id="gpA-4M-jRb"/>
                     <connections>
-                        <outlet property="defualtTipControl" destination="n9f-HE-Kfc" id="zFP-kY-sYG"/>
+                        <outlet property="defaultTipControl" destination="n9f-HE-Kfc" id="zgz-at-olc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXi-KH-ueP" userLabel="First Responder" sceneMemberID="firstResponder"/>
