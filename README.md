@@ -1,2 +1,2 @@
-# tipCalculator
-Simple tip calculator for iPhone
+# Tip Calculator
+A simple tip calculator for iPhone
