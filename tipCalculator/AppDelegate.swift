@@ -19,23 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let isNotFirstLoad = userDefaults.boolForKey("is_not_first_load")
-//        userDefaults.floatForKey("lowest_tip")
-//        userDefaults.floatForKey("mid_tip")
-//        userDefaults.floatForKey("highest_tip")
-        
-        print(!isNotFirstLoad)
         
         // If finished launching with options:
         if (!isNotFirstLoad) {
             userDefaults.setInteger(2, forKey: "default_tip_index")
-            //userDefaults.setFloat(0.0, forKey: "mid_tip")
-            //userDefaults.setFloat(0.0, forKey: "highest_tip")
+            userDefaults.setObject("", forKey: "default_billField")
+            userDefaults.setDouble(0.0, forKey: "default_tipLabel")
+            userDefaults.setDouble(0.0, forKey: "default_totalLabel")
             userDefaults.setBool(true, forKey:  "is_not_first_load")
-            userDefaults.synchronize()
-        } else {
-            //userDefaults.setFloat(0.15, forKey: "lowest_tip")
-            //userDefaults.setFloat(0.18, forKey: "mid_tip")
-            //userDefaults.setFloat(0.25, forKey: "highest_tip")
             userDefaults.synchronize()
         }
     
