@@ -16,8 +16,28 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tip Calculator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFT-fX-Lnh">
+                                <rect key="frame" x="193" y="156" width="215" height="55"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="By: David Wayman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByT-vF-78j">
+                                <rect key="frame" x="193" y="201" width="217" height="55"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.74468789609999997" green="0.96004575790000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ByT-vF-78j" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="40w-vO-kLg"/>
+                            <constraint firstItem="NFT-fX-Lnh" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="136" id="MgP-Ib-paJ"/>
+                            <constraint firstItem="NFT-fX-Lnh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dR4-GM-A00"/>
+                            <constraint firstItem="ByT-vF-78j" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="181" id="ywL-sN-x4n"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
