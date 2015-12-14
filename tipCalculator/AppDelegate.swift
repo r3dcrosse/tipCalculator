@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        var isNotFirstLoad = userDefaults.boolForKey("is_not_first_load")
+        let isNotFirstLoad = userDefaults.boolForKey("is_not_first_load")
 //        userDefaults.floatForKey("lowest_tip")
 //        userDefaults.floatForKey("mid_tip")
 //        userDefaults.floatForKey("highest_tip")
@@ -27,15 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // If finished launching with options:
         if (!isNotFirstLoad) {
-            userDefaults.setFloat(0.0, forKey: "lowest_tip")
-            userDefaults.setFloat(0.0, forKey: "mid_tip")
-            userDefaults.setFloat(0.0, forKey: "highest_tip")
+            userDefaults.setInteger(2, forKey: "default_tip_index")
+            //userDefaults.setFloat(0.0, forKey: "mid_tip")
+            //userDefaults.setFloat(0.0, forKey: "highest_tip")
             userDefaults.setBool(true, forKey:  "is_not_first_load")
             userDefaults.synchronize()
         } else {
-            userDefaults.setFloat(0.15, forKey: "lowest_tip")
-            userDefaults.setFloat(0.18, forKey: "mid_tip")
-            userDefaults.setFloat(0.25, forKey: "highest_tip")
+            //userDefaults.setFloat(0.15, forKey: "lowest_tip")
+            //userDefaults.setFloat(0.18, forKey: "mid_tip")
+            //userDefaults.setFloat(0.25, forKey: "highest_tip")
             userDefaults.synchronize()
         }
     

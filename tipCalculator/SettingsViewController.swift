@@ -16,19 +16,26 @@ class SettingsViewController: UIViewController {
     var lowestTip: Float!
     var midTip: Float!
     var highestTip: Float!
+    var defaultTipIndex: Int!
+    
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        lowestTip = userDefaults.floatForKey("lowest_tip")
-        midTip = userDefaults.floatForKey("mid_tip")
-        highestTip = userDefaults.floatForKey("highest_tip")
         
-        defaultTipControl.setTitle("\(lowestTip)", forSegmentAtIndex: 0)
-        defaultTipControl.setTitle("\(midTip)", forSegmentAtIndex: 1)
-        defaultTipControl.setTitle("\(highestTip)", forSegmentAtIndex: 2)
+        //lowestTip = userDefaults.floatForKey("lowest_tip")
+        //midTip = userDefaults.floatForKey("mid_tip")
+        //highestTip = userDefaults.floatForKey("highest_tip")
+        defaultTipIndex = userDefaults.integerForKey("default_tip_index")
+        
+        // Set the segmented control default
+        defaultTipControl.selectedSegmentIndex = defaultTipIndex
+        
+        //defaultTipControl.setTitle("\(lowestTip)", forSegmentAtIndex: 0)
+        //defaultTipControl.setTitle("\(midTip)", forSegmentAtIndex: 1)
+        //defaultTipControl.setTitle("\(highestTip)", forSegmentAtIndex: 2)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,8 +44,9 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func segControlTapped(sender: AnyObject) {
-        print(defaultTipControl.selectedSegmentIndex)
-        
+        // Reset the default tip setting whenever the button is changed
+        userDefaults.setInteger(defaultTipControl.selectedSegmentIndex, forKey: "default_tip_index")
+        userDefaults.synchronize()
     }
     
     /*
