@@ -18,6 +18,16 @@ class ViewController: UIViewController {
     
     let userDefaults = NSUserDefaults.standardUserDefaults()
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let defaultTipIndex: Int = userDefaults.integerForKey("default_tip_index")
+        
+        // Set the segmented control default
+        tipControl.selectedSegmentIndex = defaultTipIndex
+        
+        // Recalculate the tip amount
+        onEditingChange(tipControl)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +38,6 @@ class ViewController: UIViewController {
         
         // Display keyboard when app runs
         displayKeyboard()
-        
-        let defaultTipIndex: Int = userDefaults.integerForKey("default_tip_index")
-        
-        // Set the segmented control default
-        tipControl.selectedSegmentIndex = defaultTipIndex
     }
     
     func displayKeyboard() {
