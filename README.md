@@ -1,6 +1,5 @@
 # Tip Calculator
-A simple tip calculator for iPhone
-By: David Wayman
+A simple tip calculator for iPhone by David Wayman
 
 ![Tip Calculator Demo](tipCalcDemo.gif)
 
