@@ -10,10 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var billLabelName: UILabel!
+    @IBOutlet weak var tipLabelName: UILabel!
+    @IBOutlet weak var blackBar: UIView!
+    @IBOutlet weak var totalLabelName: UILabel!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var totalLabel: UILabel!
-    // @IBOutlet weak var SettingsButton: UIBarButtonItem!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
     // Declare user defaults
@@ -21,6 +24,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         let defaultTipIndex: Int = userDefaults.integerForKey("default_tip_index")
         
         // Set the default text fields/labels
@@ -70,6 +74,37 @@ class ViewController: UIViewController {
         userDefaults.setDouble(tip, forKey: "default_tipLabel")
         userDefaults.setDouble(total, forKey: "default_totalLabel")
         userDefaults.synchronize()
+        
+        // animations if there is nothing in billAmount field
+        if NSString(string: billField.text!) == "" {
+            totalLabel.alpha = 0;
+            totalLabelName.alpha = 0;
+            
+            blackBar.alpha = 0;
+            
+            tipLabel.alpha = 0;
+            tipLabelName.alpha = 0;
+            
+            billLabelName.text = "Enter your bill amount:"
+            
+            tipControl.alpha = 0;
+        } else {
+            
+            // Do some cool animations like have labels fade in
+            UIView.animateWithDuration(1, animations: {
+                    self.totalLabel.alpha = 1
+                    self.totalLabelName.alpha = 1
+                
+                    self.blackBar.alpha = 1
+                
+                    self.tipLabel.alpha = 1
+                    self.tipLabelName.alpha = 1
+                
+                    self.tipControl.alpha = 1
+                })
+            
+            billLabelName.text = "Bill Amount:"
+        }
     }
     
     @IBAction func onTap(sender: AnyObject) {

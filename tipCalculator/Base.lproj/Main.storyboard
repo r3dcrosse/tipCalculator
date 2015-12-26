@@ -23,9 +23,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rT0-Vg-eb7">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rT0-Vg-eb7">
                                 <rect key="frame" x="195" y="93" width="360" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="onEditingChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="7M1-rL-H0b"/>
@@ -112,9 +112,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billField" destination="rT0-Vg-eb7" id="3YR-ZV-1OD"/>
+                        <outlet property="billLabelName" destination="NsO-Jj-X9s" id="ZBw-HY-SXC"/>
+                        <outlet property="blackBar" destination="1F3-6o-eft" id="le6-dO-ume"/>
                         <outlet property="tipControl" destination="yDO-TO-lFM" id="Ln1-kk-3pY"/>
                         <outlet property="tipLabel" destination="QuT-La-HbK" id="KPz-cf-beI"/>
+                        <outlet property="tipLabelName" destination="aqZ-DN-RAi" id="cmZ-OC-Z2W"/>
                         <outlet property="totalLabel" destination="bV8-wU-SLt" id="Bif-Sq-e4b"/>
+                        <outlet property="totalLabelName" destination="tOd-90-Eg5" id="nZw-Fk-PGM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
