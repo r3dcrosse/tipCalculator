@@ -23,12 +23,13 @@ The following **additional** features are implemented:
 
 - [X] Added more default tip values
 - [X] Created application icon
+- [X] Able to add a custom tip percentage value
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-![Tip Calculator Demo](tipCalcDemo_v2.gif)
+![Tip Calculator Demo](tipCalcDemo_v3.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
