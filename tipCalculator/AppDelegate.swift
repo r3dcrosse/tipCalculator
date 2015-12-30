@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             userDefaults.setObject("", forKey: "default_billField")
             userDefaults.setDouble(0.0, forKey: "default_tipLabel")
             userDefaults.setDouble(0.0, forKey: "default_totalLabel")
+            userDefaults.setDouble(0.25, forKey: "custom_tipPercent")
+            userDefaults.setObject("25%", forKey: "custom_tipLabel")
             userDefaults.setBool(true, forKey:  "is_not_first_load")
             userDefaults.synchronize()
         }

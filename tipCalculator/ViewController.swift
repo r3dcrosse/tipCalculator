@@ -35,6 +35,11 @@ class ViewController: UIViewController {
         // Set the segmented control default
         tipControl.selectedSegmentIndex = defaultTipIndex
         
+        let customTipLabel = userDefaults.objectForKey("custom_tipLabel")
+        tipControl.setTitle(String(customTipLabel!), forSegmentAtIndex: 4)
+        
+        displayKeyboard()
+        
         // Recalculate the tip amount
         onEditingChange(tipControl)
     }
@@ -56,7 +61,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onEditingChange(sender: AnyObject) {
-        let tipPrecentages = [0.15, 0.18, 0.2, 0.22, 0.25]
+        let customTipPercent: Double = userDefaults.doubleForKey("custom_tipPercent")
+        
+        let tipPrecentages = [0.15, 0.18, 0.2, 0.22, customTipPercent]
         let tipPercentage = tipPrecentages[tipControl.selectedSegmentIndex]
         
         let billAmount = NSString(string: billField.text!).doubleValue

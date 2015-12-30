@@ -10,7 +10,10 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+
     @IBOutlet weak var defaultTipControl: UISegmentedControl!
+    @IBOutlet weak var customPercentTextField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     // Declare default floats as global variables
     var lowestTip: Float!
@@ -22,20 +25,15 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        
-        //lowestTip = userDefaults.floatForKey("lowest_tip")
-        //midTip = userDefaults.floatForKey("mid_tip")
-        //highestTip = userDefaults.floatForKey("highest_tip")
-        defaultTipIndex = userDefaults.integerForKey("default_tip_index")
+        let customPercentLabel = userDefaults.objectForKey("custom_tipLabel")
         
         // Set the segmented control default
+        defaultTipIndex = userDefaults.integerForKey("default_tip_index")
         defaultTipControl.selectedSegmentIndex = defaultTipIndex
+        defaultTipControl.setTitle(String(customPercentLabel!), forSegmentAtIndex: 4)
         
-        //defaultTipControl.setTitle("\(lowestTip)", forSegmentAtIndex: 0)
-        //defaultTipControl.setTitle("\(midTip)", forSegmentAtIndex: 1)
-        //defaultTipControl.setTitle("\(highestTip)", forSegmentAtIndex: 2)
+        displayKeyboard()
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,14 +47,35 @@ class SettingsViewController: UIViewController {
         userDefaults.synchronize()
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveButtonTapped(sender: AnyObject) {
+        
+        // do that optional chaining stuff to unwrap textfield optional
+        if let customPercent = Double(customPercentTextField.text!) {
+            defaultTipControl.setTitle("\(customPercent)%", forSegmentAtIndex: 4)
+            
+            let actualPercentValue: Double = customPercent/100
+            userDefaults.setDouble(actualPercentValue, forKey: "custom_tipPercent")
+            userDefaults.setObject("\(customPercent)%", forKey: "custom_tipLabel")
+            userDefaults.synchronize()
+        } else {
+            defaultTipControl.setTitle("0%", forSegmentAtIndex: 4) // Sets default to 0% if value is nil
+            
+            let actualPercentValue: Double = 0/100
+            userDefaults.setDouble(actualPercentValue, forKey: "custom_tipPercent")
+            userDefaults.setObject("0%", forKey: "custom_tipLabel")
+            userDefaults.synchronize()
+        }
+        
+        // Clear text field
+        customPercentTextField.text = ""
     }
-    */
-
+    
+    func displayKeyboard() {
+        self.customPercentTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func onTap(sender: AnyObject) {
+        view.endEditing(true)
+    }
+    
 }
